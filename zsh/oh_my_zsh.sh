@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env -S powershell.exe -ExecutionPolicy Bypass
 set -e
 sudo apt install zsh curl
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

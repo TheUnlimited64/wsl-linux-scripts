@@ -1,0 +1,13 @@
+#!/bin/bash
+while getopts n:p: flag
+do
+    case "${flag}" in
+        n) filename=${OPTARG};;
+        p) filepath=${OPTARG};;
+    esac
+done
+
+path=$(echo $filepath | sed 's/\/mnt\/c//')
+
+powershell.exe "Start-Process Powershell -Verb runAs -ArgumentList \"-Noexit cd ${path};Set-ExecutionPolicy RemoteSigned -Scope CurrentUser; .\\${filename}\""
+
