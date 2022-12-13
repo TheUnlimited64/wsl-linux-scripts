@@ -12,7 +12,9 @@ make KERNELRELEASE=$KERNELRELEASE
 make KERNELRELEASE=$KERNELRELEASE modules -j 4
 sudo make KERNELRELEASE=$KERNELRELEASE modules_install 
 sudo mount -t debugfs debugfs /sys/kernel/debug
-USERNAME=$(powershell.exe '$env:UserName')
+USERNAME=$(powershell.exe '$env:UserName' | tr -d \r)
 sudo cp arch/x86/boot/bzImage "/mnt/c/Users/${USERNAME}/bzImage"
 sudo cp .wslconfig "/mnt/c/Users/${USERNAME}/.wslconfig"
-./helper/run_powershell_script -p ${pwd} -n "shutdown_wsl.ps1"
+echo "kernel=C:\\\\Users\\\\$USERNAME\\\\bzImage">>.wslconfig
+#./helper/run_powershell_script -p ${pwd} -n "shutdown_wsl.ps1"
+echo "wsl --shutdown" | powershell.exe
