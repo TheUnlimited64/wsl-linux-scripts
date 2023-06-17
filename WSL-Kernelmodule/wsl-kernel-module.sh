@@ -7,7 +7,7 @@ fi
 CONFIG_X86_X32=$(expr $(nproc) - 1)
 git clone https://github.com/microsoft/WSL2-Linux-Kernel
 sudo apt update
-sudo apt install -y dwarves bc flex bison build-essential libelf-dev libncurses-dev libssl-dev dwarves btf python3
+sudo apt install -y dwarves bc flex bison build-essential libelf-dev libncurses-dev libssl-dev dwarves python3
 cp .config WSL2-Linux-Kernel/.config
 cd WSL2-Linux-Kernel
 git switch linux-msft-wsl-5.15.y
