@@ -1,0 +1,16 @@
+This script should technically compile a version of the kernel that allows custom modules to be loaded into wsl2
+
+It automatically places the bzImage at the right location and should automatically fill the .wslconfig by itself (it seems to be broken)
+
+
+To be added later:
+
+- If failing stop script
+
+
+Instructions:
+
+- make script executable (chmod +x wsl-kernel-module.sh)
+- (maybe execute the apt commands manually)
+- execute script
+- wsl will be shutdown, just restart it by opening terminal session and it should load in automatically
