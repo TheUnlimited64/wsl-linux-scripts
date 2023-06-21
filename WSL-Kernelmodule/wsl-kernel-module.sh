@@ -12,8 +12,8 @@ cp .config WSL2-Linux-Kernel/.config
 cd WSL2-Linux-Kernel
 git switch linux-msft-wsl-5.15.y
 export KERNELRELEASE=$(uname -r)
-make KERNELRELEASE=$KERNELRELEASE
-make KERNELRELEASE=$KERNELRELEASE modules -j $(expr $(nproc) - 1)
+make KERNELRELEASE=$KERNELRELEASE -j8
+make KERNELRELEASE=$KERNELRELEASE modules -j8
 sudo make KERNELRELEASE=$KERNELRELEASE modules_install 
 sudo mount -t debugfs debugfs /sys/kernel/debug
 USERNAME=$(/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/powershell.exe '$env:UserName' | tr -cd '[:alpha:]')
